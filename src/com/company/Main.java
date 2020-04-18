@@ -22,6 +22,8 @@ public class Main {
         me.pet = new Animal("Lion");
         me.pet.name = "Myszojeleń";
 
+        System.out.println(me.pet.species);
+
         me.pet.feed();
         me.pet.takeForAWalk();
 
@@ -29,6 +31,14 @@ public class Main {
             me.pet.takeForAWalk();
         }
 
-        System.out.println(me.pet.species);
+        me.car = new Car();
+        me.car.color = "grey";
+        me.car.make = "Volkswagen";
+        me.car.model = "Golf";
+        me.car.seats = 5;
+
+        System.out.println(me.car.make);
+
+
     }
 }
