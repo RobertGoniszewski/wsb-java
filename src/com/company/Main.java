@@ -23,6 +23,11 @@ public class Main {
         me.pet.name = "Myszojeleń";
 
         me.pet.feed();
+        me.pet.takeForAWalk();
+
+        for (int i = 0; i < 100; i++) {
+            me.pet.takeForAWalk();
+        }
 
         System.out.println(me.pet.species);
     }
