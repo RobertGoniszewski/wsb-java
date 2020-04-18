@@ -3,17 +3,25 @@ package com.company;
 import java.io.File;
 
 public class Animal {
-    String species;
+    final String species;
     String name;
-    Double weight;
     File pic;
+    private Double weight;
 
     public Animal(String species) {
         this.species = species;
+        if (species == "Dog") {
+            weight = 10.0;
+        } else if (species == "Lion") {
+            weight = 180.0;
+        } else {
+            weight = 1.0;
+        }
+
     }
 
-    void feed(){ // void nie zwraca zadnych danych, najprostsza metoda
-        weight++;
-        System.out.println("Thx, my weight is now " + weight);
+    void feed() {
+        weight += 0.1;
+        System.out.println("Thx bro, my weight is now " + weight);
     }
 }
