@@ -39,6 +39,5 @@ public class Main {
         System.out.println(me.car.make);
         me.setSalary(1000);
         me.getSalary();
-
     }
 }

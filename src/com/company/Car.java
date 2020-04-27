@@ -5,6 +5,7 @@ public class Car {
     final String model;
     String color;
     Integer seats;
+    Integer value;
 
     public Car(String make, String model) {
         this.make = make;
