@@ -31,14 +31,14 @@ public class Main {
             me.pet.takeForAWalk();
         }
 
-        me.car = new Car();
+
+        me.car = new Car( "Volkswagen", "Golf");
         me.car.color = "grey";
-        me.car.make = "Volkswagen";
-        me.car.model = "Golf";
         me.car.seats = 5;
 
         System.out.println(me.car.make);
-
+        me.setSalary(1000);
+        me.getSalary();
 
     }
 }
