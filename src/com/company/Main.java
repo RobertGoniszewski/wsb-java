@@ -1,5 +1,8 @@
 package com.company;
 
+import devices.Car;
+import devices.Phone;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -32,12 +35,17 @@ public class Main {
         }
 
 
-        me.car = new Car( "Volkswagen", "Golf");
+        me.car = new Car( "Volkswagen", "Golf", "2000", 200);
         me.car.color = "grey";
         me.car.seats = 5;
 
         System.out.println(me.car.make);
         me.setSalary(1000);
         me.getSalary();
+        Phone phone = new Phone("3310", "Nokia", "1999",1.3);
+        System.out.println(phone);
+
+        car.turnOn();
+        phone.turnOn();
     }
 }

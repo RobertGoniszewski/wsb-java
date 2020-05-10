@@ -7,7 +7,7 @@ public class Animal {
     String name;
     File pic;
     boolean isAlive = true;
-    private Double weight;
+    protected Double weight;
 
     static final Double DEFAULT_DOG_WEIGHT = 10.0;
     static final Double DEFAULT_LION_WEIGHT = 30.0;
@@ -46,5 +46,14 @@ public class Animal {
         if (this.weight < 0.1) {
             this.isAlive = false;
         }
+
+    }
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "name='" + name + '\'' +
+                ", species='" + species + '\'' +
+                ", weight=" + weight +
+                '}';
     }
 }

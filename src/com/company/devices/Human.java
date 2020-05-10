@@ -1,14 +1,26 @@
-package com.company;
+package com.company.devices;
+
+import com.company.Animal;
+import com.company.devices.Car;
+import com.company.devices.Phone;
 
 import java.time.Instant;
 
-public class Human {
+public class Human extends Animal {
     String firstName;
     String lastName;
     Phone phone;
     Animal pet;
     private Car car;
     private double salary = 0;
+
+    public Human(String firstName, String lastName, Phone phone, Animal pet) {
+        super("homo sapiens");
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.pet = pet;
+    }
 
     public double getSalary() {
         System.out.println("Salary as on " + Instant.now() + "(UTC) is " + salary);
@@ -38,5 +50,13 @@ public class Human {
         }else {
             System.out.println("You can't afford it, sorry.");
         }
+    }
+    @Override
+    public String toString() {
+        return "Human{" +
+                "name='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", salary=" + salary +
+                '}';
     }
 }
