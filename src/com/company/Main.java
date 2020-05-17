@@ -1,7 +1,7 @@
 package com.company;
 
-import devices.Car;
-import devices.Phone;
+import com.company.devices.Car;
+import com.company.devices.Phone;
 
 public class Main {
 
@@ -14,38 +14,47 @@ public class Main {
 
         dog.feed();
 
-        Human me = new Human();
-        me.firstName = "Robert";
-        me.lastName = "Goniszewski";
-        me.pet = dog;
+        Human me = new Human("Robert", "Goniszewski", phone, "Dog");
+        me.setFirstName("Robert");
+        me.setLastName("Goniszewski");
+        me.setPet(dog);
 
-        me.pet.feed();
-        System.out.println(me.pet.species);
+        me.getPet().feed();
+        System.out.println(me.getPet().species);
 
-        me.pet = new Animal("Lion");
-        me.pet.name = "Myszojeleń";
+        me.setPet(new Animal("Lion"));
+        me.setPet().name = "Myszojeleń";
 
-        System.out.println(me.pet.species);
+        System.out.println(me.getPet().species);
 
-        me.pet.feed();
-        me.pet.takeForAWalk();
+        me.getPet().feed();
+        me.getPet().takeForAWalk();
 
         for (int i = 0; i < 100; i++) {
-            me.pet.takeForAWalk();
+            me.getPet().takeForAWalk();
         }
 
 
-        me.car = new Car( "Volkswagen", "Golf", "2000", 200);
-        me.car.color = "grey";
-        me.car.seats = 5;
+        me.setCar( new Car( "Volkswagen", "Golf", "2000", 200));
+        System.out.println(me.getCar().model + " " + me.getCar().producer);
 
-        System.out.println(me.car.make);
         me.setSalary(1000);
         me.getSalary();
-        Phone phone = new Phone("3310", "Nokia", "1999",1.3);
+        Phone phone = new Phone("3310", "Nokia", 1999, 1.2);
         System.out.println(phone);
+        System.out.println(phone.toString());
 
-        car.turnOn();
         phone.turnOn();
+
+        Animal chomiczek = new Animal("chomik");
+
+        Human wife = new Human("Marta", "Goniszewska", phone, chomiczek);
+
+        try {
+            me.getPet().sellMe(wife, me, 110.0);
+        } catch (Exception exception) {
+            System.out.println(exception);
+        }
+
     }
 }

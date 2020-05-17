@@ -2,7 +2,7 @@ package com.company;
 
 import java.io.File;
 
-public class Animal {
+public class Animal implements Edible, Saleable{
     final String species;
     String name;
     File pic;
@@ -55,5 +55,36 @@ public class Animal {
                 ", species='" + species + '\'' +
                 ", weight=" + weight +
                 '}';
+    }
+    @Override
+    public void beEaten() {
+        weight = 0.0;
+        System.out.println("Hungry?");
+    }
+
+    @Override
+    public void sellMe() {
+        if (this instanceof Human) {
+            System.out.println("You sell no human, m'key?");
+        }else if (buyer.cash < price){
+        }else
+            System.out.println("You sold an animal " + this.name);
+    }
+
+    @Override
+    public void sellMe(Human buyer, Human seller, Double price) {
+        if (this instanceof Human) {
+            System.out.println("You sell no human, m'key?");
+        }else if (buyer.cash < price){
+            System.out.println("No cash, no deal");
+        }else
+            System.out.println("You sold an animal " + this.name);
+        buyer.cash -= price;
+        seller.cash += price;
+        buyer.setPet(this);
+        seller.setPet(null);
+
+        System.out.println(seller.getFirstName() + " " + seller.getLastName() + " just sold " + this + " to " +
+                buyer.getFirstName()) + " " + buyer.getLastName();
     }
 }

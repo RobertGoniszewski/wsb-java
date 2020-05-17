@@ -1,11 +1,12 @@
-package devices;
+package com.company.devices;
+import com.company.Saleable;
 
-public abstract class Device {
-    public final String producer;
-    public final String model;
-    String yearOfProduction;
+public abstract class Device implements Saleable{
+    public String producer;
+    public String model;
+    int yearOfProduction;
 
-    public Device(String producer, String model, String yearOfProduction) {
+    public Device(String producer, String model, int yearOfProduction) {
         this.producer = producer;
         this.model = model;
         this.yearOfProduction = yearOfProduction;

@@ -1,25 +1,24 @@
-package com.company.devices;
+package com.company;
 
-import com.company.Animal;
 import com.company.devices.Car;
 import com.company.devices.Phone;
 
 import java.time.Instant;
 
 public class Human extends Animal {
-    String firstName;
-    String lastName;
-    Phone phone;
-    Animal pet;
+    private String firstName;
+    private String lastName;
+    private Phone phone;
+    private Animal pet;
     private Car car;
     private double salary = 0;
+    public Double cash = 100.0;
 
     public Human(String firstName, String lastName, Phone phone, Animal pet) {
         super("homo sapiens");
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
-        this.pet = pet;
     }
 
     public double getSalary() {
@@ -51,6 +50,39 @@ public class Human extends Animal {
             System.out.println("You can't afford it, sorry.");
         }
     }
+    public Animal getPet() {
+        return pet;
+    }
+
+    public void setPet(Animal pet) {
+        this.pet = pet;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Phone getPhone() {
+        return phone;
+    }
+
+    public void setPhone(Phone phone) {
+        this.phone = phone;
+    }
+
+
     @Override
     public String toString() {
         return "Human{" +

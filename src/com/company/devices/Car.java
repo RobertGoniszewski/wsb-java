@@ -1,4 +1,4 @@
-package devices;
+package com.company.devices;
 
 public class Car extends Device {
     public double value;
@@ -22,6 +22,10 @@ public class Car extends Device {
 
     @Override
     public void turnOn() {
-        System.out.println("turn on Car");
+        System.out.println("car is turned on");
+    }
+    @Override
+    public void sellMe() {
+        System.out.println("Sold a car " + this.model);
     }
 }
