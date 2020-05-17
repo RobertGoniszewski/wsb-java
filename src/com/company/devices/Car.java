@@ -3,12 +3,12 @@ package com.company.devices;
 import com.company.Human;
 import com.company.creatures.Saleable;
 
-public class Car extends Device implements Saleable {
+public abstract class Car extends Device implements Saleable {
     public double value;
     String color;
     Integer seats;
 
-
+abstract public void refuel();
 
     public Car(String model, String producer, int yearOfProduction, double value) {
         super(producer, model, yearOfProduction);

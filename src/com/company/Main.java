@@ -1,14 +1,17 @@
 package com.company;
 
 import com.company.creatures.Animal;
-import com.company.devices.Car;
+import com.company.creatures.Pet;
+import com.company.devices.DieselCar;
+import com.company.devices.ElectricCar;
 import com.company.devices.Phone;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Animal dog = new Animal("Dog");
+        Animal dog;
+        dog = new Pet("Dog");
         dog.name = "Szarik";
 
         System.out.println("Hi, I'm " + dog.name);
@@ -23,7 +26,7 @@ public class Main {
         me.getPet().feed();
         System.out.println(me.getPet().species);
 
-        me.setPet(new Animal("Lion"));
+        me.setPet(new Pet("Lion"));
         me.setPet().name = "Myszojeleń";
 
         System.out.println(me.getPet().species);
@@ -36,7 +39,12 @@ public class Main {
         }
 
 
-        me.setCar( new Car( "Volkswagen", "Golf", 2000, 200));
+        me.setCar( new DieselCar( "Volkswagen", "Golf", 2000, 10000.0));
+        me.getCar().refuel();
+        ElectricCar autko = new ElectricCar("Model 3", "Tesla", 2019, 250000.0);
+        autko.refuel();
+
+
         System.out.println(me.getCar().model + " " + me.getCar().producer);
 
         me.setSalary(1000);
@@ -47,14 +55,25 @@ public class Main {
 
         phone.turnOn();
 
-        Animal chomiczek = new Animal("chomik");
+        Animal chomiczek = new Pet("chomik") {
+        };
 
         Human wife = new Human("Marta", "Goniszewska", phone, chomiczek);
 
         try {
             me.getPet().sellMe(wife, me, 110.0);
         } catch (Exception exception) {
-           exception.fillInStackTrace();
+           exception.printStackTrace();
+        }
+
+        String[] listOfApps = {"Total Commander", "Slack", "PayPal"}
+
+        try {
+            phone.installAnApp("Firefox");
+            phone.installAnApp("VLC", 18.0);
+            phone.installAnApp(listOfApps);
+        } catch(Exception exception) {
+            exception.printStackTrace();
         }
 
     }
