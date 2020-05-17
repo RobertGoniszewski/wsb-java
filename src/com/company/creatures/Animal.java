@@ -1,10 +1,12 @@
-package com.company;
+package com.company.creatures;
+
+import com.company.Human;
 
 import java.io.File;
 
-public class Animal implements Edible, Saleable{
-    final String species;
-    String name;
+public class Animal implements Edible, Saleable, Feedable {
+    final public String species;
+    public String name;
     File pic;
     boolean isAlive = true;
     protected Double weight;
@@ -27,7 +29,7 @@ public class Animal implements Edible, Saleable{
         }
     }
 
-    void feed() {
+    public void feed() {
         if (this.isAlive) {
             weight += 0.1;
             System.out.println("Thx bro, my weight is now " + weight);
@@ -36,7 +38,7 @@ public class Animal implements Edible, Saleable{
 
     }
 
-    void takeForAWalk() {
+    public void takeForAWalk() {
         if (this.isAlive && this.weight > 0.2) {
             this.weight -= 0.2;
             System.out.println("What a walk! My weight is now " + weight);
@@ -63,12 +65,8 @@ public class Animal implements Edible, Saleable{
     }
 
     @Override
-    public void sellMe() {
-        if (this instanceof Human) {
-            System.out.println("You sell no human, m'key?");
-        }else if (buyer.cash < price){
-        }else
-            System.out.println("You sold an animal " + this.name);
+    public void food(int foodWeight) {
+        System.out.println("Mmm, I like how this " + foodWeight + "kg food looks at me!");
     }
 
     @Override
@@ -84,7 +82,6 @@ public class Animal implements Edible, Saleable{
         buyer.setPet(this);
         seller.setPet(null);
 
-        System.out.println(seller.getFirstName() + " " + seller.getLastName() + " just sold " + this + " to " +
-                buyer.getFirstName()) + " " + buyer.getLastName();
+        String.format("%s %s", System.out.printf("%s %s just sold %s to %s%n", seller.getFirstName(), seller.getLastName(), this, buyer.getFirstName()), buyer.getLastName());
     }
 }

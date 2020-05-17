@@ -1,5 +1,6 @@
 package com.company;
 
+import com.company.creatures.Animal;
 import com.company.devices.Car;
 import com.company.devices.Phone;
 
@@ -35,7 +36,7 @@ public class Main {
         }
 
 
-        me.setCar( new Car( "Volkswagen", "Golf", "2000", 200));
+        me.setCar( new Car( "Volkswagen", "Golf", 2000, 200));
         System.out.println(me.getCar().model + " " + me.getCar().producer);
 
         me.setSalary(1000);
@@ -53,7 +54,7 @@ public class Main {
         try {
             me.getPet().sellMe(wife, me, 110.0);
         } catch (Exception exception) {
-            System.out.println(exception);
+           exception.fillInStackTrace();
         }
 
     }

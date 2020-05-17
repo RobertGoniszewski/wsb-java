@@ -1,12 +1,16 @@
 package com.company.devices;
 
-public class Car extends Device {
+import com.company.Human;
+import com.company.creatures.Saleable;
+
+public class Car extends Device implements Saleable {
     public double value;
     String color;
     Integer seats;
 
 
-    public Car(String model, String producer, String yearOfProduction, double value) {
+
+    public Car(String model, String producer, int yearOfProduction, double value) {
         super(producer, model, yearOfProduction);
         this.value = value;
     }
@@ -16,7 +20,7 @@ public class Car extends Device {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Car simpson = (Car) o;
-        return model == simpson.model &&
+        return model.equals(simpson.model) &&
                 producer.equals(simpson.producer);
     }
 
@@ -24,8 +28,9 @@ public class Car extends Device {
     public void turnOn() {
         System.out.println("car is turned on");
     }
+
     @Override
-    public void sellMe() {
+    public void sellMe(Human buyer, Human seller, Double price) {
         System.out.println("Sold a car " + this.model);
     }
 }
