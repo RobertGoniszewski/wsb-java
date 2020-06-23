@@ -52,9 +52,11 @@ public class Human extends Animal {
         if (salary>car.value) {
             System.out.println("Car bought with cash.");
             this.garage[position] = car;
+            car.setOwner(this);
         }else if (Math.round(car.value/12.0)<salary) {
             System.out.println("Car bought in installments");
             this.garage[position] = car;
+            car.setOwner(this);
         }else {
             System.out.println("You can't afford it, sorry.");
         }

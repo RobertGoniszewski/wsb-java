@@ -34,7 +34,7 @@ public class Main {
         System.out.println(me.getPet().species);
 
         me.setPet(new Pet("Lion"));
-        me.setPet().name = "Myszojeleń";
+        me.setPet(new Pet("Myszojelen"));
 
         System.out.println(me.getPet().species);
 
@@ -80,8 +80,11 @@ public class Main {
         }
         System.out.println(me.carsInGarageWorth());
 
-        me.hasFreeSpaceInGarage();
-        me.carsInGarageWorth();
+        System.out.println(me.hasFreeSpaceInGarage());
+        System.out.println(me.carsInGarageWorth());
         me.getCar(1).sellMe(me,wife,100.0);
+        System.out.println(autko.getOwners());
+        System.out.println(autko2.getOwners());
+
     }
 }
