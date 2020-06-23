@@ -1,25 +1,29 @@
 package com.company;
 
 import com.company.creatures.Animal;
+import com.company.creatures.CarYearComparator;
 import com.company.devices.Car;
 import com.company.devices.Phone;
 
 import java.time.Instant;
+import java.util.Arrays;
 
 public class Human extends Animal {
     private String firstName;
     private String lastName;
     private Phone phone;
     private Animal pet;
-    private Car car;
+    private Car[] garage;
     private double salary = 0;
     public Double cash = 100.0;
+    private CarYearComparator CarYearComparator;
 
-    public Human(String firstName, String lastName, Phone phone, Animal pet) {
+    public Human(String firstName, String lastName, Phone phone, Animal pet, Car[] garage) {
         super("homo sapiens");
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
+        this.garage = new Car[2];
     }
 
     public double getSalary() {
@@ -36,21 +40,47 @@ public class Human extends Animal {
         }
     }
 
-    public Car getCar() {
-        return car;
+    public void setGarage(int size) {
+        this.garage = new Car[size];
     }
 
-    public void setCar(Car car) {
+    public Car getCar(int position) {
+        return garage[position];
+    }
+
+    public void setCar(Car car, int position) {
         if (salary>car.value) {
             System.out.println("Car bought with cash.");
-            this.car = car;
+            this.garage[position] = car;
         }else if (Math.round(car.value/12.0)<salary) {
             System.out.println("Car bought in installments");
-            this.car = car;
+            this.garage[position] = car;
         }else {
             System.out.println("You can't afford it, sorry.");
         }
     }
+
+    public double carsInGarageWorth(){
+        double cash = 0.0;
+        for (Car car : garage){
+            cash += car.value;
+        }
+        return cash;
+    }
+
+    public Car[] getGarage() {
+        return garage;
+    }
+
+    public Boolean hasFreeSpaceInGarage(){
+        for (int i = 0; 1 < garage.length; i++) {
+            if (garage[i] == null) {
+                return true;
+            };
+        }
+        return false;
+    }
+
     public Animal getPet() {
         return pet;
     }
@@ -83,6 +113,10 @@ public class Human extends Animal {
         this.phone = phone;
     }
 
+    CarYearComparator carYearComparator = new CarYearComparator();
+    public void sortGarage(){
+        Arrays.sort(garage, CarYearComparator);
+    }
 
     @Override
     public String toString() {
@@ -91,5 +125,10 @@ public class Human extends Animal {
                 ", lastName='" + lastName + '\'' +
                 ", salary=" + salary +
                 '}';
+    }
+
+    @Override
+    public void sellMe() {
+
     }
 }

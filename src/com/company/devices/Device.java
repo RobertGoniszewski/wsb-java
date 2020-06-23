@@ -5,6 +5,7 @@ public abstract class Device implements Saleable{
     public String producer;
     public String model;
     int yearOfProduction;
+    double value;
 
     public Device(String producer, String model, int yearOfProduction) {
         this.producer = producer;

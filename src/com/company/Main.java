@@ -8,7 +8,7 @@ import com.company.devices.Phone;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         Animal dog;
         dog = new Pet("Dog");
@@ -17,8 +17,15 @@ public class Main {
         System.out.println("Hi, I'm " + dog.name);
 
         dog.feed();
+        Phone phone = new Phone("3310", "Nokia", 1999, 1.2);
+        Phone se = new Phone("SE", "Apple", 2016, 4.0);
+        System.out.println(phone);
+        System.out.println(phone.toString());
 
-        Human me = new Human("Robert", "Goniszewski", phone, "Dog");
+        phone.turnOn();
+        ElectricCar autko = new ElectricCar("Model 3", "Tesla", 2019, 250000.0);
+        ElectricCar autko2 = new ElectricCar("Model 4", "Tesla", 2020, 350000.0);
+        Human me = new Human("Robert", "Goniszewski", phone, dog, autko);
         me.setFirstName("Robert");
         me.setLastName("Goniszewski");
         me.setPet(dog);
@@ -39,26 +46,22 @@ public class Main {
         }
 
 
-        me.setCar( new DieselCar( "Volkswagen", "Golf", 2000, 10000.0));
-        me.getCar().refuel();
-        ElectricCar autko = new ElectricCar("Model 3", "Tesla", 2019, 250000.0);
+        me.setCar( new DieselCar( "Volkswagen", "Golf", 2000, 10000.0),0);
+        me.getCar(0).refuel();
+
         autko.refuel();
 
 
-        System.out.println(me.getCar().model + " " + me.getCar().producer);
+        System.out.println(me.getCar(0).model + " " + me.getCar(0).producer);
 
         me.setSalary(1000);
         me.getSalary();
-        Phone phone = new Phone("3310", "Nokia", 1999, 1.2);
-        System.out.println(phone);
-        System.out.println(phone.toString());
 
-        phone.turnOn();
 
         Animal chomiczek = new Pet("chomik") {
         };
 
-        Human wife = new Human("Marta", "Goniszewska", phone, chomiczek);
+        Human wife = new Human("Marta", "Goniszewska", se, chomiczek, autko2);
 
         try {
             me.getPet().sellMe(wife, me, 110.0);
@@ -66,7 +69,7 @@ public class Main {
            exception.printStackTrace();
         }
 
-        String[] listOfApps = {"Total Commander", "Slack", "PayPal"}
+        String[] listOfApps = {"Total Commander", "Slack", "PayPal"};
 
         try {
             phone.installAnApp("Firefox");
@@ -75,6 +78,10 @@ public class Main {
         } catch(Exception exception) {
             exception.printStackTrace();
         }
+        System.out.println(me.carsInGarageWorth());
 
+        me.hasFreeSpaceInGarage();
+        me.carsInGarageWorth();
+        me.getCar(1).sellMe(me,wife,100.0);
     }
 }
