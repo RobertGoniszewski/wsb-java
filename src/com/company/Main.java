@@ -2,6 +2,7 @@ package com.company;
 
 import com.company.creatures.Animal;
 import com.company.creatures.Pet;
+import com.company.devices.Application;
 import com.company.devices.DieselCar;
 import com.company.devices.ElectricCar;
 import com.company.devices.Phone;
@@ -85,6 +86,14 @@ public class Main {
         me.getCar(1).sellMe(me,wife,100.0);
         System.out.println(autko.getOwners());
         System.out.println(autko2.getOwners());
-
+        Application allegro = new Application("Allegro", 1.0, 0.0);
+        Application theGame = new Application("theGame", 1.1, 10.0);
+        Application twitterPr0 = new Application("Twitter Pr0", 23.0, 2.0);
+        me.getPhone().installAnApp(me, allegro);
+        me.getPhone().installAnApp(me, theGame);
+        me.getPhone().installAnApp(me, twitterPr0);
+        System.out.println(me.getPhone().listFreeApps());
+        System.out.println(me.getPhone().appsSortedByName());
+        System.out.println(me.getPhone().appsSortedByPrice());
     }
 }
